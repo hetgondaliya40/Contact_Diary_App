@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
           Navigator.pushNamed(context, Routes.addToContactPage);
         },
         child: const Icon(
-          Icons.person_add,
+          Icons.add_ic_call_outlined,
         ),
       ),
     );
