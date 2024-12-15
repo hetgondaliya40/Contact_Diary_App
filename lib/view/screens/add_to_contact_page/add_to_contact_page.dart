@@ -17,7 +17,9 @@ class AddToContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        backgroundColor: Colors.grey[200],
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(
@@ -45,31 +47,94 @@ class AddToContactPage extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            _buildTextField(
-              hintText: "Name",
-              icon: Icons.person_outline,
+            TextField(
               controller: nameController,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "Name",
+                hintStyle: const TextStyle(
+                  color: Colors.black12,
+                ),
+                prefixIcon: Icon(
+                  Icons.drive_file_rename_outline,
+                  color: Colors.grey[00],
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(27),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 18.h,
+                  horizontal: 16.w,
+                ),
+              ),
+              style: const TextStyle(
+                color: Colors.black87,
+              ),
             ),
             SizedBox(
               height: 20.h,
             ),
-            _buildTextField(
-              hintText: "Phone Number",
-              icon: Icons.phone_outlined,
-              keyboardType: TextInputType.phone,
-              controller: phoneController,
-              maxLength: 10,
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            _buildTextField(
-              hintText: "Email",
-              icon: Icons.email_outlined,
-              keyboardType: TextInputType.emailAddress,
+            TextField(
               controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "Email Address",
+                hintStyle: const TextStyle(
+                  color: Colors.black12,
+                ),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.grey[00],
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(27),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 18.h,
+                  horizontal: 16.w,
+                ),
+              ),
+              style: const TextStyle(
+                color: Colors.black87,
+              ),
             ),
-            const Spacer(),
+            SizedBox(
+              height: 20.h,
+            ),
+            TextField(
+              maxLength: 10,
+              controller: phoneController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "Phone Number",
+                hintStyle: const TextStyle(
+                  color: Colors.black12,
+                ),
+                prefixIcon: Icon(
+                  Icons.phone,
+                  color: Colors.grey[00],
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(27),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 18.h,
+                  horizontal: 16.w,
+                ),
+              ),
+              style: const TextStyle(
+                color: Colors.black87,
+              ),
+            ),
             Center(
               child: ElevatedButton(
                 onPressed: () {
@@ -94,48 +159,11 @@ class AddToContactPage extends StatelessWidget {
                   context.read<StepperController>().stepperModel.stepperIndex =
                       0;
                 },
-                child: const Text("Submit"),
+                child: const Text("Add Contact"),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildTextField({
-    required String hintText,
-    required IconData icon,
-    TextInputType keyboardType = TextInputType.text,
-    required TextEditingController controller,
-    int? maxLength,
-  }) {
-    return TextField(
-      maxLength: maxLength,
-      controller: controller,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.grey[300],
-        hintText: hintText,
-        hintStyle: const TextStyle(
-          color: Colors.black12,
-        ),
-        prefixIcon: Icon(
-          icon,
-          color: Colors.grey[00],
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(27),
-          borderSide: BorderSide.none,
-        ),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 18.h,
-          horizontal: 16.w,
-        ),
-      ),
-      style: const TextStyle(
-        color: Colors.black87,
       ),
     );
   }
